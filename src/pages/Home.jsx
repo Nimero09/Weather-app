@@ -4,8 +4,8 @@ import DayOfTheWeek from '../components/DayOfTheWeek';
 
 
 export const Home = ({cityInfo, weather}) => {
-  const key = `e14525355dc9d7b5d3830f9791e69ee4`;
   const day = new Date();
+  console.log(cityInfo, 'perros')
   
   return (
     <>
@@ -16,7 +16,7 @@ export const Home = ({cityInfo, weather}) => {
         </div>
         <div className='flex items-center'>
           <section className='flex-1'>
-            <h2 className='text-blue-900 font-bold'>{cityInfo.city?.name}</h2>
+            <h2 className='text-blue-900 font-bold'>{cityInfo.city?.name === 'La Merced' ? 'Bogotá' : cityInfo.city?.name}, {cityInfo.city?.country}</h2>
             <div className='flex items-center'>
               <img className='w-36' src={Icons(weather[0]?.weather[0].main)} alt="Weather-icon" />
               <span className='text-[100px] text-blue-900'>{Math.round(weather[0]?.main.temp)}&deg;</span>

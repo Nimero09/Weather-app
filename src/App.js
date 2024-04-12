@@ -54,6 +54,7 @@ function App() {
       <NavBar />
       <SearchBar setValue={setInputValue}/>
       <Home 
+        searchValue={cityInfo}
         cityInfo={cityInfo}
         weather={weather}
       />
