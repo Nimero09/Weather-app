@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    h2 {
+        font-size: 1.8em;
+        color: rgb(54, 54, 54);
+    }
+}
+
+@layer components {
+    .card {
+        padding: 40px 50px;
+        border-radius: 20px;
+        background: white;
+    }
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(#ffffff, #97baff);
+}
