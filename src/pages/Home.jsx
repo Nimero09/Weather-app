@@ -1,33 +1,12 @@
-import React, { useEffect, useState } from 'react'
 import Icons from '../components/Icons';
 import { BiUpArrowAlt, BiDownArrowAlt, BiSolidDroplet, BiWind, BiLeftTopArrowCircle  } from "react-icons/bi";
 import DayOfTheWeek from '../components/DayOfTheWeek';
 
 
-export const Home = () => {
+export const Home = ({cityInfo, weather}) => {
   const key = `e14525355dc9d7b5d3830f9791e69ee4`;
   const day = new Date();
-  const [cityInfo, setCityInfo] = useState({});
-  const [weather, setWeather] = useState([]);
   
-  useEffect(() => {
-    fetchData();
-      // eslint-disable-next-line
-  }, [])
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=4.610&lon=-74.082&units=metric&appid=${key}`);
-      const result = await response.json();
-      setCityInfo(result);
-      setWeather(result.list)
-      console.log(weather);
-      console.log(cityInfo)
-    } catch (err) {
-      console.log(`Error fetching data: ${err}`);
-    }
-  }
-
   return (
     <>
       <section className='max-w-[70%] mx-auto card my-10'>
