@@ -1,37 +1,37 @@
 const Icons = (icon) => {
   switch (icon) {
-    case 'Thundestorm':
-      icon = '../assets/icons/thundestorm.svg'
+    case 'Thunderstorm':
+      icon = 'icons/thunderstorm.svg'
       break;
     case 'Drizzle':
-      icon = '../assets/icons/drizzle.svg'
+      icon = 'icons/drizzle.svg'
       break;
      case 'Rain':
-      icon = '../assets/icons/rain.svg'
+      icon = 'icons/rain.svg'
       break;
     case 'Snow':
-      icon = '../assets/icons/snow.svg'
+      icon = 'icons/snow.svg'
       break;
     case 'Clear':
-      icon = '../assets/icons/clear.svg'
+      icon = 'icons/clear.svg'
       break;
     case 'Atmosphere':
-      icon = '../assets/icons/atmosphere.svg'
+      icon = 'icons/atmosphere.svg'
       break;
     case 'Clouds':
-      icon = '../assets/icons/clouds.svg'
+      icon = 'icons/clouds.svg'
       break;
     case 'Fog':
-      icon = '../assets/icons/fog.svg'
+      icon = 'icons/fog.svg'
       break;
     case 'Haze':
-      icon = '../assets/icons/haze.svg'
+      icon = 'icons/haze.svg'
       break;
     case 'Smoke':
-      icon = '../assets/icons/smoke.svg'
+      icon = 'icons/smoke.svg'
       break;
     default:
-      icon = '../assets/icons/clear.svg'
+      icon = 'icons/clear.svg'
       break;
   }
   return icon;
