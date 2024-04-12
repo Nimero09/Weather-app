@@ -54,10 +54,6 @@ function App() {
     }
   }
 
-  useEffect(() => {
-    console.log(`Esta es tu data`,cityInfo)
-  }, [cityInfo])
-
   return (
     <>
       <NavBar />

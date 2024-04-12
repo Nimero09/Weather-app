@@ -5,7 +5,6 @@ import DayOfTheWeek from '../components/DayOfTheWeek';
 
 export const Home = ({cityInfo, weather}) => {
   const day = new Date();
-  console.log(cityInfo, 'perros')
   
   return (
     <>
