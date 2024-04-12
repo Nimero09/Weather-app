@@ -20,6 +20,7 @@ function App() {
         if (data.length > 0) {
           const latAndLong = { lat: data[0].lat, lon: data[0].lon };
           console.log("Coordinates:", latAndLong);
+          await getForecast(latAndLong);
           await getCityInfo(latAndLong);
         } else {
           console.log("No data found");
@@ -33,17 +34,25 @@ function App() {
     // eslint-disable-next-line
   }, [searchValue]);
 
-  const getCityInfo = async (latAndLong) => {
+  const getForecast = async (latAndLong) => {
     try {
       const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${latAndLong.lat ? latAndLong.lat : 4.610}&lon=${latAndLong.lon ? latAndLong.lon : -74.082}&units=metric&appid=${key}`);
       const data = await response.json();
-      setCityInfo(data);
       setWeather(data.list);
-      console.log(cityInfo);
     } catch (error) {
-      console.log("Error fetching city info:", error);
+      console.log("Error fetching forecast:", error);
     }
   };
+
+  const getCityInfo = async (latAndLong) => {
+    try {
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latAndLong.lat ? latAndLong.lat : 4.610}&lon=${latAndLong.lon ? latAndLong.lon : -74.082}&units=metric&appid=${key}`);
+      const data = await response.json();
+      setCityInfo(data);
+    } catch (error){
+      console.log(`Error fetching city info`, error)
+    }
+  }
 
   useEffect(() => {
     console.log(`Esta es tu data`,cityInfo)

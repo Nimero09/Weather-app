@@ -16,36 +16,36 @@ export const Home = ({cityInfo, weather}) => {
         </div>
         <div className='flex items-center'>
           <section className='flex-1'>
-            <h2 className='text-blue-900 font-bold'>{cityInfo.city?.name === 'La Merced' ? 'Bogotá' : cityInfo.city?.name}, {cityInfo.city?.country}</h2>
+            <h2 className='text-blue-900 font-bold'>{cityInfo?.name === 'La Merced' ? 'Bogotá' : cityInfo?.name}, {cityInfo.sys?.country}</h2>
             <div className='flex items-center'>
-              <img className='w-36' src={Icons(weather[0]?.weather[0].main)} alt="Weather-icon" />
-              <span className='text-[100px] text-blue-900'>{Math.round(weather[0]?.main.temp)}&deg;</span>
+              <img className='w-36' src={Icons(cityInfo?.weather[0].main)} alt="Weather-icon" />
+              <span className='text-[100px] text-blue-900'>{Math.round(cityInfo?.main.temp)}&deg;</span>
             </div>
-            <span className='text-2xl semibold text-gray-400'>{weather[0]?.weather[0].description}</span>
+            <span className='text-2xl semibold text-gray-400'>{cityInfo?.weather[0].description}</span>
           </section>
           <section className='flex flex-1 flex-col gap-5 text-xl text-gray-500'>
-            <span className='text-2xl semibold text-gray-800'>Feels like {Math.round(weather[0]?.main.feels_like)}&deg;C</span>
+            <span className='text-2xl semibold text-gray-800'>Feels like {Math.round(cityInfo?.main.feels_like)}&deg;C</span>
             <div className='flex gap-4'>
               <section className='flex items-center'>
                 <BiUpArrowAlt />
-                <span>{Math.ceil(weather[0]?.main.temp_max)}&deg;C</span>
+                <span>{Math.ceil(cityInfo?.main.temp_max)}&deg;C</span>
               </section>
               <section className='flex items-center'>
                 <BiDownArrowAlt />
-                <span>{Math.floor(weather[0]?.main.temp_min)}&deg;C</span>
+                <span>{Math.floor(cityInfo?.main.temp_min)}&deg;C</span>
               </section>
             </div>
             <div className='flex items-center gap-4'>
               <BiSolidDroplet />
-              <span>Humidity: {weather[0]?.main.humidity}%</span>
+              <span>Humidity: {cityInfo?.main.humidity}%</span>
             </div>
             <div className='flex items-center gap-4'>
               <BiWind />
-              <span>Wind: {weather[0]?.wind.speed}m/s</span>
+              <span>Wind: {cityInfo?.wind.speed}m/s</span>
             </div>
             <div className='flex items-center gap-4'>
               <BiLeftTopArrowCircle />
-              <span>Pressure: {weather[0]?.main.humidity}hPa</span>
+              <span>Pressure: {cityInfo?.main.pressure}hPa</span>
             </div>
           </section>
         </div>
