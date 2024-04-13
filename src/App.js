@@ -19,7 +19,6 @@ function App() {
         const data = await response.json();
         if (data.length > 0) {
           const latAndLong = { lat: data[0].lat, lon: data[0].lon };
-          console.log("Coordinates:", latAndLong);
           await getForecast(latAndLong);
           await getCityInfo(latAndLong);
         } else {

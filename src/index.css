@@ -18,6 +18,6 @@
 }
 
 body {
-    height: 100vh;
+    height: minmax(100vh, fit-content);
     background: linear-gradient(#ffffff, #97baff);
 }
