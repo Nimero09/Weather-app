@@ -1,21 +1,29 @@
 import Icons from '../components/Icons';
 import { BiUpArrowAlt, BiDownArrowAlt, BiSolidDroplet, BiWind, BiLeftTopArrowCircle  } from "react-icons/bi";
 import DayOfTheWeek from '../components/DayOfTheWeek';
+import { useEffect, useState } from 'react';
 
 export const Home = ({cityInfo, weather}) => {
   const day = new Date();
-  console.log(cityInfo, 'perros')
+  const [toogle, setToggle] = useState(false);
+  const handleToggle = () => {
+    setToggle(!toogle);
+    console.log(toogle);
+  }
+  useEffect(() => {
+    console.log(toogle)
+  }, [toogle]);
   
   return (
     <>
       <section className='max-w-[70%] mx-auto card my-10'>
         <div className='flex justify-between'>
           <h3 className='text-xl font-semibold'>Current Weather</h3>
-          <label class="inline-flex items-center cursor-pointer">
-            <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300 mr-3">C&deg;</span>
-            <input type="checkbox" value="" class="sr-only peer" />
-            <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-            <span class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">F&deg;</span>
+          <label className="inline-flex items-center cursor-pointer">
+            <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300 mr-3">C&deg;</span>
+            <input onChange={() => handleToggle} type="checkbox" value="" className="sr-only peer" />
+            <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+            <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">F&deg;</span>
           </label>
         </div>
         <div className='flex items-center'>
@@ -58,9 +66,9 @@ export const Home = ({cityInfo, weather}) => {
         <h3 className='text-xl font-semibold mb-5'>Extended Forecast</h3>
         <div className='flex justify-between'>
           {weather.filter((x,i) => i % 8 === 0).map((x,i) => (
-            <section key={i}>
+            <section key={i} className='flex flex-col items-center'>
               <h5 className='text-2xl text-blue-900 font-bold text-center'>{DayOfTheWeek((day.getDay()+i)% 7)}</h5>
-              <img className='w-36' src={Icons(x.weather[0].main)} alt="Weather-icon" />
+              <img className='w-24' src={Icons(x.weather[0].main)} alt="Weather-icon" />
               <span className='text-2xl font-semibold text-gray-600 text-center block mb-2'>{x.weather[0].main}</span>
               <span className='text-xl text-blue-900 font-semibold text-center block'>{x.main.temp_min}&deg;/{x.main.temp_max}&deg;</span>
             </section>
