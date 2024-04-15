@@ -8,6 +8,7 @@ function App() {
   const [searchValue, setSearchValue] = useState('Bogota');
   const [cityInfo, setCityInfo] = useState({});
   const [weather, setWeather] = useState([]);
+  const [error, setError] = useState([false]);
   const key = `e14525355dc9d7b5d3830f9791e69ee4`;
 
   const setInputValue = (value) => setSearchValue(value);
@@ -18,11 +19,13 @@ function App() {
         const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${searchValue}&limit=1&appid=${key}`);
         const data = await response.json();
         if (data.length > 0) {
+          setError(false);
           const latAndLong = { lat: data[0].lat, lon: data[0].lon };
           await getForecast(latAndLong);
           await getCityInfo(latAndLong);
         } else {
           console.log("No data found");
+          setError(true);
         }
       } catch (error) {
         console.log("Error fetching:", error);
@@ -56,9 +59,11 @@ function App() {
   return (
     <>
       <NavBar />
-      <SearchBar setValue={setInputValue}/>
+      <SearchBar 
+        setValue={setInputValue}
+        error={error}
+      />
       <Home 
-        searchValue={cityInfo}
         cityInfo={cityInfo}
         weather={weather}
       />
