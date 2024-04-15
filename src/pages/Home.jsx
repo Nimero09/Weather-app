@@ -63,7 +63,7 @@ export const Home = ({cityInfo, weather}) => {
         <h3 className='text-xl font-semibold mb-5 md:text-center'>Extended Forecast</h3>
         <div className='flex justify-between md:flex-col md:gap-5'>
           {weather.filter((x,i) => i % 8 === 0).map((x,i) => (
-            <section key={i} className='flex flex-col items-center md:pb-5 border-solid border-gray-300 border-b-2'>
+            <section key={i} className={`flex flex-col items-center md:pb-5 ${i === weather.filter((x,i) => i % 8 === 0).length - 1 ? '' : 'md:border-solid md:border-gray-300 md:border-b-2'}`}>
               <h5 className='text-2xl text-blue-900 font-bold text-center'>{DayOfTheWeek((day.getDay()+i)% 7)}</h5>
               <img className='w-24' src={Icons(x.weather[0].main)} alt="Weather-icon" />
               <span className='text-2xl font-semibold text-gray-600 text-center block mb-2'>{x.weather[0].main}</span>
