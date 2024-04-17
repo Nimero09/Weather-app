@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${searchValue}&limit=1&appid=${key}`);
+        const response = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${searchValue}&limit=1&appid=${key}`);
         const data = await response.json();
         if (data.length > 0) {
           setError(false);
@@ -38,7 +38,7 @@ function App() {
 
   const getForecast = async (latAndLong) => {
     try {
-      const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${latAndLong.lat ? latAndLong.lat : 4.610}&lon=${latAndLong.lon ? latAndLong.lon : -74.082}&units=metric&appid=${key}`);
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latAndLong.lat ? latAndLong.lat : 4.610}&lon=${latAndLong.lon ? latAndLong.lon : -74.082}&units=metric&appid=${key}`);
       const data = await response.json();
       setWeather(data.list);
     } catch (error) {
