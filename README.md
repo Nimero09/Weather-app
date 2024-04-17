@@ -2,7 +2,7 @@
 
 A sleek and intuitive Weather App built with React, Tailwind CSS, and the OpenWeather API. Get detailed weather forecasts and current conditions for cities worldwide, with the ability to toggle between Celsius and Fahrenheit temperature units.
 
-![Weather App Screenshot](weather-app-screenshot.png)
+![app](https://github.com/Nimero09/Weather-app/assets/90343997/b4c6a775-8f9c-485a-b69d-27c59267f9df)
 
 ## Features
 
